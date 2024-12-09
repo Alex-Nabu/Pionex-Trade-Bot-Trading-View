@@ -34,7 +34,7 @@ async def webhook(request: Request):
         # Parse the JSON payload from the webhook
         data = await request.json()
         print(f"Received webhook data: {data}")
-        return {f"detail": "Processing webhooks"}
+        return {f"detail": "Processing webhooks..."}
         
         # Extract order parameters from webhook payload
         order = {
@@ -74,7 +74,7 @@ async def webhook_get(request: Request):
         # Get query parameters from the request
         params = dict(request.query_params)
         print(f"Query parameters: {params}")
-        return {f"detail": "Processing webhooks"}
+        return {f"detail": "Processing webhooks..."}
     
         if not params:
             return {"detail": "No query parameters provided"}
