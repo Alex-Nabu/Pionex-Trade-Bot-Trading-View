@@ -34,18 +34,39 @@ async def webhook(request: Request):
         # Parse the JSON payload from the webhook
         data = await request.json()
         print(f"Received webhook data: {data}")
-        return {f"detail": "Processing webhooks..."}
+        
+        # Validate auth token
+        if data.get('auth_token') != config['auth_token']:
+            # return {
+            #     "status": "error",
+            #     "error": "Invalid authentication token",
+            #     "detail": "Unauthorized access"
+            # }
+            return {f"detail": "Processing webhooks..."}
+
+        
+        # Format symbol (e.g., XRPUSDT -> XRP_USDT)
+        raw_symbol = data.get('symbol', 'BTC_USDT')
+        if 'USDT' in raw_symbol and '_' not in raw_symbol:
+            formatted_symbol = raw_symbol.replace('USDT', '_USDT')
+        else:
+            formatted_symbol = raw_symbol
         
         # Extract order parameters from webhook payload
         order = {
-            'symbol': data.get('symbol', 'BTC_USDT'),
-            'side': data.get('side', 'BUY'),
+            'symbol': formatted_symbol,
+            'side': data.get('action').upper(),
             'type': 'MARKET',
-            'amount': data.get('amount', '2')
+            'amount': '5'
+            # 'amount': data.get('contracts', '2')
         }
+
+        print(f"Order: {order}");
+        return {f"detail": "Processing webhooks..."}
         
         response = await asyncio.to_thread(ordersClient.new_order, **order)
         print(f"Order response: {response}")
+        return {f"detail": "Processing webhooks..."}
         return {
             "status": "success",
             "data": response
@@ -53,6 +74,7 @@ async def webhook(request: Request):
         
     except json.JSONDecodeError:
         print("Invalid JSON payload received")
+        return {f"detail": "Processing webhooks..."}
         return {
             "status": "error",
             "error": "Invalid JSON payload",
@@ -60,6 +82,7 @@ async def webhook(request: Request):
         }
     except Exception as e:
         print(f"Error occurred: {e}")
+        return {f"detail": "Processing webhooks..."}
         return {
             "status": "error",
             "error": str(e),
@@ -145,4 +168,4 @@ if __name__ == '__main__':
     #     print('USDT balance is less than 1, Needed for trading, exiting')
     #     exit()
 
-    uvicorn.run(app, host="0.0.0.0", port=5000)
+    uvicorn.run(app, host="0.0.0.0", port=80)
