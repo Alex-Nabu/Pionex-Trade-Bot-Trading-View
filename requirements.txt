@@ -1,3 +1,7 @@
 pionex_python
 uvicorn
 fastapi
+pandas
+datetime
+pydantic
+openpyxl
