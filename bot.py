@@ -32,10 +32,10 @@ def log_order(response, order, error_message=''):
     try:
         log_entry = {
             'timestamp': datetime.fromtimestamp(response.get('timestamp', 0)/1000).isoformat() if response.get('timestamp') else datetime.now().isoformat(),
-            'symbol': order['symbol'],
-            'side': order['side'],
-            'amount': order['amount'],
-            'order_type': order['type'],
+            'symbol': order.get('symbol'),
+            'side': order.get('side'),
+            'amount': order.get('amount'),
+            'order_type': order.get('type'),
             'status': 'SUCCESS' if response.get('result') else 'FAILED' if not error_message else 'ERROR',
             'order_id': response.get('data', {}).get('orderId', ''),
             'error_message': error_message or response.get('error', '')
@@ -155,6 +155,7 @@ async def webhook(request: Request, webhook_data: WebhookData | None = Body(defa
                 
     except json.JSONDecodeError:
         print("Invalid JSON payload received")
+        log_order({}, {}, str(e))
         return {f"detail": "Processing webhooks..."}
         return {
             "status": "error",
@@ -165,7 +166,7 @@ async def webhook(request: Request, webhook_data: WebhookData | None = Body(defa
         print(f"Error occurred: {e}")
         
         # Log the error
-        log_order({}, order, str(e))
+        log_order({}, {}, str(e))
         
 
 #get request to test the webhook
