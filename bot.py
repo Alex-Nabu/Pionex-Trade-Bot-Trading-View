@@ -142,12 +142,12 @@ async def webhook(request: Request, webhook_data: WebhookData | None = Body(defa
         print(f"Order: {order}");
         #return {f"detail": "Processing webhooks..."}
         
-        #response = await asyncio.to_thread(ordersClient.new_order, **order)
-        response =  {
-            'result': True, 
-            'data': {'orderId': 10997315733345430, 'clientOrderId': ''}, 
-            'timestamp': 1733818081950
-        }
+        response = await asyncio.to_thread(ordersClient.new_order, **order)
+        # response =  {
+        #     'result': True, 
+        #     'data': {'orderId': 10997315733345430, 'clientOrderId': ''}, 
+        #     'timestamp': 1733818081950
+        # }
         print(f"Order response: {response}")
         
         # Log the order
