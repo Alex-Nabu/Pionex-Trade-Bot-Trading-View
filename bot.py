@@ -80,7 +80,7 @@ class WebhookData(BaseModel):
     time: str | None = None
 
 
-# Modify the webhook endpoint
+# Send tradingview Alerts here yourdomain.com/webhook
 @app.post("/webhook")
 async def webhook(request: Request, webhook_data: WebhookData | None = Body(default=None)):
     try:
@@ -204,7 +204,7 @@ async def webhook_get(request: Request):
         }
 
 
-# Modify the update_config endpoint to use individual Query parameters
+# update your config in real time. also updates the stored file
 @app.get("/update_config")
 async def update_config(
     auth_token: str = Query(None),
@@ -257,8 +257,7 @@ async def update_config(
     except Exception as e:
         return {"status": "error", "error": str(e), "detail": "Error updating config"}
 
-#sell all non usdt coin balances to usdt
-#also read in symbol from query string
+#quick function to buy or sell
 @app.get("/dump")
 async def dump(symbol: str = Query(default=None), amount: str = Query(default=None), side: str = Query(default='SELL')):
     balance = await asyncio.to_thread(accountClient.get_balance)

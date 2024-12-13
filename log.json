@@ -1,0 +1,11 @@
+{
+  "log_file": "log.json",
+  "auth_token": "5CwfzRLTBcU2x4KnuqF",
+  "tradeAmount": 10,
+  "investmentType": "FIXED",
+  "pionex": {
+    "apiKey": "pionexApiKey",
+    "secret": "pionexApiSecret"
+  },
+  "enabled": true
+}
