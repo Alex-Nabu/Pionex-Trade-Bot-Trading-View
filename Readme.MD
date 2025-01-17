@@ -20,7 +20,7 @@
 # Configuration
 
 The configuration is straightforward. Below is an example of the configuration file:
-`
+```json 
 {
   "log_file": "log.json",  // the name you want to give your log file where trades done are logged. Also errors.
   "auth_token": "5CwfzRLTBcU2x4KnuqF",  // Your tradingview webhook auth code. secures api calls
