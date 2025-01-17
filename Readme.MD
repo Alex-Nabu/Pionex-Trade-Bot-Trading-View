@@ -1,3 +1,8 @@
+# Welcome
+This is a python bot to take trades on pionex based on your tradingview alerts. Enable and set alerts in tradingview in webhooks and host the bot and then point your tradingview webook alerts to but server ip or url. 
+Bot will then execute the trades based on the alerts it receives to buy or sell. 
+
+
 # Installation Guide
 
 1. **Ensure Python is Installed**  
