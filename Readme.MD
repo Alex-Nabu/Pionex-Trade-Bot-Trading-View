@@ -22,15 +22,15 @@
 The configuration is straightforward. Below is an example of the configuration file:
 
 {
-  "log_file": "log.json", 		// the name you want to give your log file where trades done are logged. Also errors. 
+  "log_file": "log.json",  // the name you want to give your log file where trades done are logged. Also errors.
   "auth_token": "5CwfzRLTBcU2x4KnuqF",  // Your tradingview webhook auth code. secures api calls
-  "tradeAmount": 10, 			// The amount in dollars or percentage you want to execute trades for. 
-  "investmentType": "FIXED",		// FIXED = TradeAmount is using dollars so 10 = $10 dollars, PERCENTAGE = TradeAmount is percentage so 10 = 10% of your total USDT Pionex account balance
-  "pionex" : {
-    "apiKey" : "pionexApiKey",		// pionex apikey found in pionex settings
-    "secret" : "pionexApiSecret"	// pionex apikey secret found in pionex settings when creating api key
+  "tradeAmount": 10,  // The amount in dollars or percentage you want to execute trades for.
+  "investmentType": "FIXED",  // FIXED = TradeAmount is using dollars so 10 = $10 dollars, PERCENTAGE = TradeAmount is percentage so 10 = 10% of your total USDT Pionex account balance
+  "pionex": {
+    "apiKey": "pionexApiKey",  // pionex apikey found in pionex settings
+    "secret": "pionexApiSecret"  // pionex apikey secret found in pionex settings when creating api key
   },
-  "enabled": true			// setting to say if the bot should process tradingview alert signals or not. true or false. For quick disable
+  "enabled": true  // setting to say if the bot should process tradingview alert signals or not. true or false. For quick disable
 }
 
 ---
