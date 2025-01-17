@@ -51,6 +51,6 @@ If you apprecaiate my work you tip me here I appreciate all tips but you dont ha
 
 # Contact
 
-If you're interested in collaborating on other projects or need customization, feel free to reach out to me at [king.xanda+pn@gmail.com](mailto:king.xanda+pn@gmail.com). I reply pretty quickly! :D 👋👋
+If you need help with your own project feel free to reach out to my agency [king.xanda+pn@gmail.com](mailto:king.xanda+pn@gmail.com). I reply pretty quickly! :D 👋👋
 
 Happy Trading 👋👋👋
