@@ -32,6 +32,7 @@ The configuration is straightforward. Below is an example of the configuration f
   },
   "enabled": true  // setting to say if the bot should process tradingview alert signals or not. true or false. For quick disable
 }
+```json
 
 # Conclusion
 
