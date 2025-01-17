@@ -20,7 +20,7 @@
 # Configuration
 
 The configuration is straightforward. Below is an example of the configuration file:
-
+`
 {
   "log_file": "log.json",  // the name you want to give your log file where trades done are logged. Also errors.
   "auth_token": "5CwfzRLTBcU2x4KnuqF",  // Your tradingview webhook auth code. secures api calls
@@ -32,7 +32,7 @@ The configuration is straightforward. Below is an example of the configuration f
   },
   "enabled": true  // setting to say if the bot should process tradingview alert signals or not. true or false. For quick disable
 }
-
+`
 ---
 
 # Conclusion
